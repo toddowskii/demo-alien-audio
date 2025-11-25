@@ -1,23 +1,25 @@
-// 7. Funkcje MVP: Obsługa formularza kontaktowego
-
 document.addEventListener("DOMContentLoaded", function() {
-    
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Contact form submission
     const contactForm = document.getElementById("contactForm");
 
     if (contactForm) {
         contactForm.addEventListener("submit", function(event) {
-            // Zapobiegaj domyślnej akcji wysyłania formularza
             event.preventDefault();
 
-            // Zbieranie danych (opcjonalne, na razie nie wysyłamy)
-            // const name = document.getElementById("name").value;
-            // const email = document.getElementById("email").value;
-            // const message = document.getElementById("message").value;
-            
-            // Wyświetl prosty alert (zgodnie z wytyczną MVP)
-            alert("Dziękujemy! Twoja wiadomość została (symulacyjnie) wysłana.");
+            alert("Thank you! Your message has been sent.");
 
-            // Wyczyść formularz po "wysłaniu"
             contactForm.reset();
         });
     }
